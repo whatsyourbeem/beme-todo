@@ -1,112 +1,51 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TextInput, Button } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// View는 레이아웃 역할을 하는 태그에요.
+// Text 태그를 이용하면 텍스트 내용을 적을 수 있어요.
+// import는 했으나 현재 App에서 사용하지 않는 ScrollView, TextInput, Button 태그에 대해서도 공부해보세요!
+// React-Native의 모든 태그들은 여기를 참고하면 돼요. https://reactnative.dev/docs/components-and-apis
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+// App 은 "return( )" 안에 있는 내용을 결과물로 출력하는 함수에요.
+// Javascript에서는 함수를 정의할 때 ()=>{함수내용} 과 같은 형태로도 사용한답니다.
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
+    <View style={styles.container}>
+      <Text style={styles.titleText}>
+        Welcome BEEMERs!
       </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
+      <Text style={styles.contentText}>
+        자, 여러분이 만든 첫 앱이에요! 놀랍지 않나요?
+      </Text>
+      <Text style={styles.contentText}>
+        앞으로 이곳은 여러분의 빛나는 아이디어들로 채워질거에요!
       </Text>
     </View>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
+// 디자인을 추가하고 싶을 땐 아래와 같이 사용해요. (우리가 보통 CSS라고 불리는 문법과 동일해요.)
+// 사용할 수 있는 스타일 요소는 여기를 참고하면 돼요. https://reactnative.dev/docs/text-style-props
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    backgroundColor: '#00264b',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  titleText: {
+    color: 'white',
+    fontSize: 28,
+    marginTop: 30,
+    marginBottom: 30,
+    fontWeight: '300',
+    textAlign: 'center',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+  contentText: {
+    color: 'white',
+    fontSize: 16,
+    marginTop: 10,
+    marginBottom: 10,
+    textAlign: 'center',
+  }
 });
 
 export default App;
