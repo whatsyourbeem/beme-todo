@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 
 // View는 레이아웃 역할을 하는 태그에요.
 // Text 태그를 이용하면 텍스트 내용을 적을 수 있어요.
@@ -18,8 +18,35 @@ const App = () => {
         자, 여러분이 만든 첫 앱이에요! 놀랍지 않나요?
       </Text>
       <Text style={styles.contentText}>
-        앞으로 이곳은 여러분의 빛나는 아이디어들로 채워질거에요!
+        앞으로 이곳은 여러분의 빛나는 아이디어들로 채워질거에요
       </Text>
+      <Text style={styles.contentText}>
+        여러분의 아이디어를 마음껏 구현해보세요!
+      </Text>
+
+      <ScrollView style={{marginTop:40}}>
+        <Text style={styles.contentText}>
+          이름을 입력하세요
+        </Text>
+        <TextInput style={styles.textInput}/>
+        
+        <Text style={styles.contentText}>
+          사는 곳을 알려주세요
+        </Text>
+        <TextInput style={styles.textInput}/>
+
+        <Text style={styles.contentText}>
+          나이가 어떻게 되시나요?
+        </Text>
+        <TextInput style={styles.textInput}/>
+
+        <TouchableOpacity style={styles.button}>
+          <Text style={{textAlign:'center', fontWeight:'bold'}}>
+            제출
+          </Text>
+        </TouchableOpacity>
+
+      </ScrollView>
     </View>
   );
 };
@@ -45,7 +72,24 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     textAlign: 'center',
-  }
+  },
+  textInput: {
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 10,
+    marginLeft: 40,
+    marginRight: 40,
+  },
+  button:{
+    backgroundColor: 'white',
+    width: 60,
+    height: 30,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+  },
 });
 
 export default App;
